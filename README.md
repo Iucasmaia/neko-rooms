@@ -27,7 +27,7 @@ No experience with Docker and reverse proxy? No problem! Follow these steps to s
 
 ### Traefik version
 ```bash
-wget -O neko-rooms-traefik.sh https://raw.githubusercontent.com/m1k1o/neko-rooms/master/traefik/install
+wget -O neko-rooms-traefik.sh https://raw.githubusercontent.com/Iucasmaia/neko-rooms/refs/heads/master/traefik/install
 sudo bash neko-rooms-traefik.sh
 ```
 
