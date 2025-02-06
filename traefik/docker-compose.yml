@@ -39,6 +39,7 @@ services:
       - ".env"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/opt/neko-rooms/data:/data"
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.neko-rooms-frontend.loadbalancer.server.port=8080"

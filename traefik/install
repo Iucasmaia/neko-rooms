@@ -212,15 +212,23 @@ NEKO_IMAGES=(m1k1o/neko:firefox m1k1o/neko:chromium m1k1o/neko:google-chrome)
   echo "NEKO_ROOMS_TRAEFIK_NETWORK=neko-rooms-traefik"
   echo "NEKO_ROOMS_TRAEFIK_CERTRESOLVER=lets-encrypt"
   echo "NEKO_ROOMS_NEKO_IMAGES=${NEKO_IMAGES[*]}"
+  echo "NEKO_ROOMS_STORAGE_ENABLED=true"
+  echo "NEKO_ROOMS_STORAGE_INTERNAL=/data"
+  echo "NEKO_ROOMS_STORAGE_EXTERNAL=/opt/neko-rooms/data"
 } > .env
 
 echo "[Y] Creating env..."
 
 #
-# Download traefik config
+# Create necessary directories
 #
 
-mkdir -p "./config"
+mkdir -p ./config
+mkdir -p /opt/neko-rooms/data
+
+#
+# Download traefik config
+#
 
 wget -O "./traefik.yml" "https://raw.githubusercontent.com/Iucasmaia/neko-rooms/refs/heads/master/traefik/traefik.yml"
 sed -i "s/yourname@example.com/${TRAEFIK_EMAIL}/g" "./traefik.yml"
